@@ -93,9 +93,3 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, { setError, addSmurf })(AddForm);
-
-//Task List:
-//1. Connect the props.error, setError and addSmurf actions to the AddForm component.
-//2. Replace all instances of the props.error static variable with your error message state value.
-//3. Within the handleSubmit function, replace the static assignment to props.error with a call to the setError action. Test that an error is displayed when this validation code fails.
-//4. Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summury passed as arguments. Test that a smurf is correctly added to when the form is submitted.
