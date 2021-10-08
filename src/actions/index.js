@@ -22,7 +22,10 @@ export const fetchSmurfs = () => {
     axios
       .get("http://localhost:3333/smurfs")
       .then((res) => {
-        dispatch(fetchSuccess(res.data));
+        const dataArr = res.data;
+        dataArr.map((smurf) => {
+          return dispatch(fetchSuccess(smurf));
+        });
       })
       .catch((err) => {
         dispatch(fetchFail(err));
