@@ -1,9 +1,42 @@
-
 export const initialState = {
-}
+  smurfsArr: [],
+  loading: false,
+  error: "",
+};
 
-const reducer = ()=>{
-}
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_SMURFS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        smurfsArr: [...state.smurfsArr, action.payload],
+      };
+    case FETCH_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case ADD_SMURF:
+      return {
+        ...state,
+        smurfsArr: [...state.smurfsArr, action.payload],
+      };
+    case ADD_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
 export default reducer;
