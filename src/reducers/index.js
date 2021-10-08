@@ -1,5 +1,5 @@
 import {
-  FETCH_SMURFS,
+  FETCH_START,
   FETCH_FAIL,
   FETCH_SUCCESS,
   ADD_SMURF,
@@ -13,7 +13,7 @@ export const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_SMURFS:
+    case FETCH_START:
       return {
         ...state,
         loading: true,
