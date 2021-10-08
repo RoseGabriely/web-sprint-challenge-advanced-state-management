@@ -4,7 +4,7 @@ export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAIL = "FETCH_FAIL";
 export const ADD_SMURF = "ADD_SMURF";
-export const ADD_ERROR = "ADD_ERROR";
+export const SET_ERROR = "SET_ERROR";
 
 export const fetchStart = () => {
   return { type: FETCH_START };
@@ -28,7 +28,7 @@ export const fetchSmurfs = () => {
         });
       })
       .catch((err) => {
-        dispatch(fetchFail(err));
+        dispatch(fetchFail("API call failed"));
       });
   };
 };
@@ -36,8 +36,8 @@ export const fetchSmurfs = () => {
 export const addSmurf = (smurf) => {
   return { type: ADD_SMURF, payload: smurf };
 };
-export const addError = (error) => {
-  return { type: ADD_ERROR, payload: error };
+export const setError = (error) => {
+  return { type: SET_ERROR, payload: error };
 };
 //Task List:
 //1. Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retreive smurfs from our server, saves the result of that call to our state and shows an error if one is made.

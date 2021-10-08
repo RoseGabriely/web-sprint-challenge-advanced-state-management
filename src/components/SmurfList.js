@@ -1,13 +1,8 @@
 import React from "react";
 import Smurf from "./Smurf";
-import axios from "axios";
 import { connect } from "react-redux";
 
 const SmurfList = (props) => {
-  //   axios.get("http://localhost:3333/smurfs").then((res) => {
-  //     console.log(res.data);
-  //   });
-
   if (props.loading) {
     return <h1>Loading...</h1>;
   }
@@ -15,7 +10,7 @@ const SmurfList = (props) => {
   return (
     <div className="listContainer">
       {props.smurfsArr.map((smurf) => {
-        return <Smurf key={smurf.id} smurf={smurf} />;
+        return <Smurf key={smurf.name} smurf={smurf} />;
       })}
     </div>
   );
@@ -25,7 +20,6 @@ const mapStateToProps = (state) => {
   return {
     smurfsArr: state.smurfsArr,
     loading: state.loading,
-    error: state.error,
   };
 };
 
